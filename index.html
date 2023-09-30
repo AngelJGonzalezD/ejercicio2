@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notas</title>
+</head>
+<body>
+    <h1>Notas</h1>
+
+    <form method="post" action="procesar.php" id="formulario-principal">
+        <!-- Campos del formulario -->
+        <label>Numero de Cedula de Identidad del Alumno:</label>
+        <input type="text" name="cedula[]"><br>
+        <label>Nombre del Alumno:</label>
+        <input type="text" name="nombre[]"><br>
+        <label>Nota de Matematicas:</label>
+        <input type="number" name="matematicas[]"><br>
+        <label>Nota de Fisica:</label>
+        <input type="number" name="fisica[]"><br>
+        <label>Nota de Programacion:</label>
+        <input type="number" name="programacion[]"><br><br>
+        <!-- Fin de campos del formulario -->
+    </form>
+    <!-- Botones para calcular y agregar otro formulario -->
+    <hr>
+    <button type="button" class="agregar">Agregar Otro</button>
+    <input type="submit" value="Calcular" form="formulario-principal">
+
+    <script>
+        // Función para clonar el formulario y agregarlo
+        document.querySelector('.agregar').addEventListener('click', function() {
+            const formulario = document.querySelector('#formulario-principal');
+            const nuevoFormulario = formulario.cloneNode(true);
+            formulario.parentNode.insertBefore(nuevoFormulario, formulario.nextSibling);
+        });
+    </script>
+</body>
+</html>
+
